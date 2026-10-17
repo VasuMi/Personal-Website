@@ -17,6 +17,7 @@ from app.blog_service import delete_blog_post
 
 from app.blog_service import get_all_blog_posts
 
+from app.blog_service import save_rating
 
 from fastapi import Response
 from app.auth import verify_admin, create_access_token
@@ -246,3 +247,19 @@ def logout(response: Response):
     )
 
     return {"message": "Logged out successfully"}
+
+
+
+class RatingInput(BaseModel):
+    rating: str
+
+
+@app.post("/api/ratings")
+def submit_rating(data: RatingInput):
+    if data.rating not in ("up", "down"):
+        raise HTTPException(
+            status_code=400,
+            detail="Rating must be 'up' or 'down'.",
+        )
+
+    return save_rating(data.rating)

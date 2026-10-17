@@ -30,3 +30,18 @@ def create_admin_users_table():
 
     with get_connection() as conn:
         conn.execute(query)
+
+
+def create_ratings_table():
+    query = """
+    CREATE TABLE IF NOT EXISTS ratings (
+        id SERIAL PRIMARY KEY,
+        rating VARCHAR(10) NOT NULL
+            CHECK (rating IN ('up', 'down')),
+        created_at TIMESTAMPTZ NOT NULL
+            DEFAULT CURRENT_TIMESTAMP
+    );
+    """
+
+    with get_connection() as conn:
+        conn.execute(query)

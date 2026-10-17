@@ -137,3 +137,23 @@ def get_all_blog_posts():
         }
         for row in rows
     ]
+
+
+from app.database import get_connection
+
+
+def save_rating(rating: str):
+    query = """
+        INSERT INTO ratings (rating)
+        VALUES (%s)
+        RETURNING id, rating, created_at;
+    """
+
+    with get_connection() as conn:
+        row = conn.execute(query, (rating,)).fetchone()
+
+    return {
+        "id": row[0],
+        "rating": row[1],
+        "created_at": row[2].isoformat(),
+    }
