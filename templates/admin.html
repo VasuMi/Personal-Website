@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | VasuMi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <main class="admin-page">
+        <a href="/" class="back-link">← home</a>
+
+        <header class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <p>Manage your writing, one post at a time.</p>
+        </header>
+        <button type="button" id="logout-button">
+            Logout
+        </button>
+
+        <section class="admin-editor">
+            <h2 id="form-heading">Write a new post</h2>
+
+            <form id="blog-form">
+                <label for="post-title">Title</label>
+                <input
+                    type="text"
+                    id="post-title"
+                    name="title"
+                    maxlength="200"
+                    required
+                    placeholder="Give your post a title"
+                >
+
+                <label for="post-content">Content</label>
+                <textarea
+                    id="post-content"
+                    name="content"
+                    rows="12"
+                    required
+                    placeholder="Start writing..."
+                ></textarea>
+
+                <label class="publish-option">
+                    <input type="checkbox" id="post-published">
+                    Publish this post
+                </label>
+
+                <div class="admin-actions">
+                    <button type="submit" id="save-post">
+                        Save post
+                    </button>
+                    <button type="button" id="cancel-edit" hidden>
+                        Cancel edit
+                    </button>
+                </div>
+
+                <p id="admin-feedback" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="admin-posts">
+            <h2>Your posts</h2>
+            <div id="admin-post-list">Loading posts...</div>
+        </section>
+
+        <footer class="site-footer">
+            <span>© </span><span class="footer-brand">VasuMi</span>
+        </footer>
+    </main>
+
+    <script src="/static/js/admin.js" defer></script>
+</body>
+</html>

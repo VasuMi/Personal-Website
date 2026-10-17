@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Postbox | VasuMi</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <main class="postbox-page">
+
+        <a class="back-home" href="/">← home</a>
+
+        <section class="postbox-content">
+            <h1>The Postbox</h1>
+
+            <p class="postbox-message">
+                Rate your experience anonymously. It will be helpful for me.
+            </p>
+
+            <form class="rating-form" id="rating-form">
+                <p class="rating-question">How was your experience?</p>
+
+                <div class="rating-options">
+                    <button type="button" class="rating-option" data-rating="up"
+                            aria-pressed="false">
+                        <span aria-hidden="true">👍</span>
+                        <span>Good</span>
+                    </button>
+
+                    <button type="button" class="rating-option" data-rating="down"
+                            aria-pressed="false">
+                        <span aria-hidden="true">👎</span>
+                        <span>Needs improvement</span>
+                    </button>
+                </div>
+
+                <p class="rating-feedback" id="rating-feedback"
+                   role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

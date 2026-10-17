@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook & Pen | VasuMi</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <main class="blog-archive">
+        <a href="/" class="back-link">← home</a>
+
+        <header class="blog-header">
+            <h1>Notebook & Pen</h1>
+            <p class="blog-tagline">
+                Thoughts, learnings, and little things worth writing down.
+            </p>
+        </header>
+
+        <section class="blog-list">
+            {% if posts %}
+                {% for post in posts %}
+                    <article class="blog-entry">
+                        <h2>
+                            <a href="/blog/{{ post.id }}">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+                        <p class="blog-date">
+                            {{ post.created_at[:10] }}
+                        </p>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p>Your first blog post will appear here.</p>
+            {% endif %}
+        </section>
+
+        <footer class="site-footer">
+            <span>© </span><span class="footer-brand">VasuMi</span>
+        </footer>
+    </main>
+</body>
+</html>
+

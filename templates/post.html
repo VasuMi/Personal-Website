@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | VasuMi</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <main class="article-page">
+        <a href="/blog" class="back-link">← Notebook & Pen</a>
+
+        <article class="article-content">
+            <h1>{{ post.title }}</h1>
+
+            <p class="blog-date">{{ post.created_at[:10] }}</p>
+
+            <div class="article-body">{{ post.content }}</div>
+        </article>
+
+        <footer class="site-footer">
+            <span>© </span><span class="footer-brand">VasuMi</span>
+        </footer>
+    </main>
+</body>
+</html>
